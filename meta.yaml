@@ -1,0 +1,38 @@
+package:
+  name: pycscs
+  version: "0.0.1"
+
+source:
+  git_url: https://github.com/askerdb/pyCSCS
+
+build:
+  noarch: generic
+  
+requirements:
+  host:
+    - python
+    - setuptools
+    - scipy
+    - pytest
+    - pytest-runner
+
+  run:
+    - python
+    - scipy
+    - scikit-bio
+    - pandas
+    - numpy
+    - pytest
+
+  test:
+    requires:
+      - pytest
+      - pytest-runner
+
+
+
+
+about:
+  home: https://github.com/askerdb/pyCSCS
+  license: MIT
+  license_file: LICENSE

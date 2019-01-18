@@ -53,6 +53,17 @@ def read_bucket(features_file, normalization):
     return((sample_names, featureids,csc_matrix(bucket.values)))
     
 def cscs_from_files(features_file, css_edges, cosine_threshold = 0.6, normalization = True, weighted = True, cpus = 1, chunk = 2):
+    """ Compute CSCS from input files in GNPS buckettable and egdes format
+    Args:
+        features_file (table): A path to a buckettable file from GNPS
+        edges (table): The CSS matrix as a edges file from GNPS
+        cosine_threshold (float): Threshold under which all entries in the CSS matri will be set to 0. Set to 0.6 by default as in Sedio et al.
+        normalization (boolean): Total Ion Current Sum Normalization or not
+        weight (boolean): Weight all intensities or treat them as presence/absence
+        cpus (int): Number of processes to run default = 1
+        chunk (int): Number of samples to process in each process
+
+    """
     sample_names, featureids, features = read_bucket(features_file, normalization)
     observationids = {str(x):index for index, x in enumerate(featureids)}
     edgesdok = read_css(css_edges, observationids, features.shape[0], cosine_threshold)
@@ -74,7 +85,7 @@ def cscs(features, edges, sample_names, cosine_threshold = 0.6, normalization = 
         cosine_threshold (float): Threshold under which all entries in the CSS matri will be set to 0. Set to 0.6 by default as in Sedio et al.
         normalization (boolean): Total Ion Current Sum Normalization or not
         weight (boolean): Weight all intensities or treat them as presence/absence
-        cpus (int): Number of processes to run
+        cpus (int): Number of processes to run default = 1
         chunk (int): Number of samples to process in each process
 
     """
