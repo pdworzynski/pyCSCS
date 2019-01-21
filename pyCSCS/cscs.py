@@ -9,7 +9,6 @@ from scipy.sparse import dok_matrix,csc_matrix
 import skbio
 import pandas as pd
 import biom
-from q2_types.feature_table import FeatureTable, Frequency
 from multiprocessing import Process, Queue 
 from collections import defaultdict
 import itertools
