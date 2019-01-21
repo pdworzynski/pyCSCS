@@ -6,7 +6,7 @@ source:
   git_url: https://github.com/askerdb/pyCSCS
 
 build:
-  noarch: generic
+  noarch: python
   
 requirements:
   host:
