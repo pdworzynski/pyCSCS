@@ -5,10 +5,16 @@ pyCSCS
 conda install -c askerdb pycscs
 ```
 ### Examples
+Download the small tests
+```
+wget https://raw.githubusercontent.com/askerdb/pyCSCS/master/tests/data/small_GNPS_buckettable.tsv
+wget https://raw.githubusercontent.com/askerdb/pyCSCS/master/tests/data/small_GNPS_edges.tsv
+```
+
 Import the library and run the wrapper function that loads GNPS formatted formatted data
 ```python
 >>> import pyCSCS
->>> pyCSCS.cscs_from_files("tests/data/small_GNPS_buckettable.tsv", "tests/data/small_GNPS_edges.tsv")
+>>> pyCSCS.cscs_from_files("small_GNPS_buckettable.tsv", "small_GNPS_edges.tsv")
           Sample1   Sample2   Sample3   Sample4   Sample5   Sample6
 Sample1  0.000000  0.350203  1.000000  1.000000  1.000000  1.000000
 Sample2  0.350203  0.000000  0.440548  1.000000  1.000000  1.000000
